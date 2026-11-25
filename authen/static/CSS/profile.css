@@ -1,0 +1,254 @@
+/* =========================================
+   PROFILE PAGE
+========================================= */
+
+.profile-title {
+    text-align: center;
+
+    margin-top: 40px;
+    margin-bottom: 30px;
+
+    font-size: 32px;
+
+    color: #1f2937;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   PROFILE CONTAINER
+========================================= */
+
+.profile-container {
+    width: 500px;
+
+    margin: 0 auto 50px;
+
+    padding: 35px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   PROFILE IMAGE
+========================================= */
+
+.profile-image {
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 30px;
+}
+
+
+.profile-image img {
+    width: 200px !important;
+
+    height: 200px !important;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #2563eb;
+
+    padding: 3px;
+
+    background-color: #ffffff;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   PROFILE INFORMATION
+========================================= */
+
+.profile-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 5px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.profile-item span {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #6b7280;
+}
+
+
+.profile-item strong {
+    font-size: 15px;
+
+    color: #1f2937;
+
+    text-align: right;
+
+    max-width: 60%;
+
+    word-break: break-word;
+}
+
+
+/* =========================================
+   VERIFIED STATUS
+========================================= */
+
+.profile-item:first-of-type strong {
+    color: #16a34a;
+}
+
+
+/* =========================================
+   BUTTON CONTAINER
+========================================= */
+
+.profile-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.profile-buttons .btn {
+    display: inline-block;
+
+    padding: 11px 18px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Update Details */
+
+.profile-buttons .btn:first-child {
+    background-color: #2563eb;
+
+    color: #ffffff;
+
+    border: 1px solid #2563eb;
+}
+
+
+.profile-buttons .btn:first-child:hover {
+    background-color: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+}
+
+
+/* Reset Password */
+
+.profile-buttons .btn:last-child {
+    background-color: #ffffff;
+
+    color: #dc2626;
+
+    border: 1px solid #dc2626;
+}
+
+
+.profile-buttons .btn:last-child:hover {
+    background-color: #dc2626;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(220, 38, 38, 0.2);
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .profile-title {
+        font-size: 26px;
+
+        margin-top: 30px;
+    }
+
+
+    .profile-container {
+        width: calc(100% - 30px);
+
+        padding: 25px 20px;
+    }
+
+
+    .profile-image img {
+        width: 160px !important;
+
+        height: 160px !important;
+    }
+
+
+    .profile-item {
+        padding: 13px 0;
+    }
+
+
+    .profile-item span {
+        font-size: 13px;
+    }
+
+
+    .profile-item strong {
+        font-size: 14px;
+
+        max-width: 55%;
+    }
+
+
+    .profile-buttons {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .profile-buttons .btn {
+        width: 100%;
+
+        text-align: center;
+    }
+}

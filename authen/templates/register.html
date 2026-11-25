@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/register.css' %}">
+{% endblock %}
+{% block content %}
+<div class="register-container">
+    <div class="register-box">
+    <h1> Register Page</h1> <br>
+    {% if messages %}
+        {% for i in messages %}
+            <h2 style="color: red;">{{i}}</h2> <br><br>
+        {% endfor %}
+    {% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="">FirstName:</label>
+        <input type="text" name="fname" id=""> <br> <br>
+
+        <label for="">LastName:</label>
+        <input type="text" name="lname" id=""> <br> <br>
+
+        <label for="">Email:</label>
+        <input type="email" name="email" id=""> <br> <br>
+
+        <label for="">Username:</label>
+        <input type="text" name="uname" id=""> <br> <br>
+
+        <label for="">Password:</label>
+        <input type="password" name="pasw" id=""> <br> <br>
+
+        <label for="">Confirm Password:</label>
+        <input type="password" name="cpasw" id=""> <br> <br>
+
+        <center><button type="submit">Register</button></center> <br> <br>
+    </form>
+    <div class="register-links"></div>
+    <a href="{% url 'login_' %}">Already Register</a>
+    <a href="">Reset Password</a>
+ </div>
+</div>
+</div>
+{% endblock %}

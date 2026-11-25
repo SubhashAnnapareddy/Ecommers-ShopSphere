@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/order_history.css' %}">
+{% endblock %}
+{% block content %}
+<div class="order-history-page">
+    <div class="order-history-header">
+        <span>YOUR ACCOUNT</span>
+        <h1>Order History</h1>
+        <p>Track and view all your previous orders.</p>
+    </div>
+    <div class="orders-container">
+        {% for i in orders %}
+        <div class="order-history-card">
+            <div class="order-history-top">
+                <div class="order-number">
+                    <span>ORDER ID</span>
+                    <h2>#{{i.id}}</h2>
+                </div>
+                <div class="order-status-badge">{{i.status}}</div>
+            </div>
+            <div class="order-history-info">
+                <div>
+                    <span>ORDER DATE</span>
+                    <strong>{{i.created_at}}</strong>
+                </div>
+                <div>
+                    <span>TOTAL AMOUNT</span>
+                    <strong>₹{{i.total_amount}}</strong>
+                </div>
+                <a href="{% url 'order_details' i.id %}" class="view-order-btn">View Details →</a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="no-orders">
+            <div class="no-orders-icon">📦</div>
+            <h2>No Orders Yet</h2>
+            <p>You haven't placed any orders yet.</p>
+            <a href="{% url 'home' %}" class="shop-now-btn">Start Shopping</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

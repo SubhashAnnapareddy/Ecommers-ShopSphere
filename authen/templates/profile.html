@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="profile-title">My Profile</h1>
+
+<div class="profile-container">
+    <div class="profile-image">
+        <img src="{{profile.profile_pic.url}}" alt="">
+    </div>
+    <div class="profile-item">
+        <span>Verified</span>
+        <strong>{{ request.user.is_authenticated }}</strong>
+    </div>
+
+    <div class="profile-item">
+        <span>First Name</span>
+        <strong>{{ request.user.first_name }}</strong>
+    </div>
+
+    <div class="profile-item">
+        <span>Last Name</span>
+        <strong>{{ request.user.last_name }}</strong>
+    </div>
+    <div class="profile-item">
+        <span>Email</span>
+        <strong>{{ request.user.email }}</strong>
+    </div>
+
+    <div class="profile-buttons">
+        <a href="{% url 'updateprofile' %}" class="btn">Update Details</a>
+        <a href="{% url 'reset_pasw' %}" class="btn">Reset Password</a>
+    </div>
+
+</div>
+
+{% endblock %}

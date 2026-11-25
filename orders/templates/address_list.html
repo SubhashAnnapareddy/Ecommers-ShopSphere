@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/address_list.css' %}">
+{% endblock %}
+{% block content %}
+<div class="address-list-page">
+    <div class="address-list-header">
+        <div>
+            <span>YOUR ACCOUNT</span>
+            <h1>Saved Addresses</h1>
+            <p>Manage your delivery addresses.</p>
+        </div>
+        <a href="{% url 'add_address' %}" class="add-address-btn">+ Add Address</a>
+    </div>
+    <div class="address-list-container">
+        {% for i in address %}
+        <div class="saved-address-card">
+            <div class="saved-address-top">
+                <div class="address-person">
+                    <div class="person-icon">👤</div>
+                    <div>
+                        <h2>{{i.fullname}}</h2>
+                        <span>{{i.mobile}}</span>
+                    </div>
+                </div>
+                {% if i.is_default %}
+                <span class="default-badge">✓ DEFAULT</span>
+                {% endif %}
+            </div>
+            <div class="address-details">
+                <p>{{i.address_line}}</p>
+                <p>{{i.city}}, {{i.state}}</p>
+                <p class="pincode">PINCODE: {{i.pincode}}</p>
+            </div>
+            <div class="address-card-footer">
+                {% if i.is_default %}
+                <span class="default-text">✓ Default delivery address</span>
+                {% else %}
+                <span class="saved-text">Saved Address</span>
+                {% endif %}
+                <a href="{% url 'update_address' i.id %}" class="update-address-btn">Update Address</a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="no-address">
+            <div class="no-address-icon">📍</div>
+            <h2>No Addresses Found</h2>
+            <p>You haven't added a delivery address yet.</p>
+            <a href="{% url 'add_address' %}" class="add-first-address">Add Your First Address</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

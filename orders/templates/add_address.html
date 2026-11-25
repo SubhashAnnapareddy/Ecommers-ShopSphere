@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/add_address.css' %}">
+{% endblock %}
+{% block content %}
+<div class="address-page">
+    <div class="address-header">
+        <span>DELIVERY INFORMATION</span>
+        <h1>Add Address</h1>
+        <p>Enter your delivery details to continue with your order.</p>
+    </div>
+    <div class="address-container">
+        <div class="address-card">
+            <div class="address-card-header">
+                <div class="address-icon">📍</div>
+                <div>
+                    <h2>Delivery Address</h2>
+                    <p>Fill in your complete address details.</p>
+                </div>
+            </div>
+            <form action="" method="POST" class="address-form">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="address-submit">Save Address →</button>
+            </form>
+        </div>
+        <div class="address-info">
+            <div class="info-item">
+                <span>✓</span>
+                <div>
+                    <h3>Secure Information</h3>
+                    <p>Your address is safely stored with your account.</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <span>✓</span>
+                <div>
+                    <h3>Accurate Delivery</h3>
+                    <p>Provide your complete address to avoid delivery issues.</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <span>✓</span>
+                <div>
+                    <h3>Easy Checkout</h3>
+                    <p>Your saved address can be used for future orders.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

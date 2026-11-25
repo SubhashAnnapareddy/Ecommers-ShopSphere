@@ -1,0 +1,78 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/order_details.css' %}">
+{% endblock %}
+{% block content %}
+<div class="order-details-page">
+    <div class="order-header">
+        <span>ORDER INFORMATION</span>
+        <h1>Order Details</h1>
+        <p>View your order summary and purchased products.</p>
+    </div>
+    <div class="order-container">
+        <div class="order-summary-card">
+            <div class="order-card-title">
+                <div>
+                    <span>ORDER ID</span>
+                    <h2>#{{order.id}}</h2>
+                </div>
+                <div class="order-icon">📦</div>
+            </div>
+            <div class="order-info-grid">
+                <div class="order-info-item">
+                    <span>Total Amount</span>
+                    <strong>₹{{order.total_amount}}</strong>
+                </div>
+                <div class="order-info-item">
+                    <span>Status</span>
+                    <strong class="order-status">{{order.status}}</strong>
+                </div>
+                <div class="order-info-item">
+                    <span>Order Date</span>
+                    <strong>{{order.created_at}}</strong>
+                </div>
+            </div>
+        </div>
+        <div class="items-card">
+            <div class="items-header">
+                <div>
+                    <span>YOUR PURCHASE</span>
+                    <h2>Ordered Products</h2>
+                </div>
+                <div class="item-count">{{items|length}} Items</div>
+            </div>
+            <div class="order-items">
+                {% for i in items %}
+                <div class="order-item">
+                    <div class="order-product-image">
+                        <img src="{{i.product.pimage.url}}" alt="{{i.product.pname}}">
+                    </div>
+                    <div class="order-product-info">
+                        <h3>{{i.product.pname}}</h3>
+                        <p>Product Price</p>
+                        <strong>₹{{i.product.price}}</strong>
+                    </div>
+                    <div class="order-product-action">
+                        <span>Quantity</span>
+                        <strong>{{i.quantity}}</strong>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="no-order-items">
+                    <span>📦</span>
+                    <h3>No Products Found</h3>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="order-total-card">
+            <div>
+                <span>Order Total</span>
+                <h2>₹{{order.total_amount}}</h2>
+            </div>
+            <div class="order-status-large">{{order.status}}</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

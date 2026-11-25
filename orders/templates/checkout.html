@@ -1,0 +1,107 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/checkout.css' %}">
+{% endblock %}
+{% block content %}
+<div class="checkout-page">
+    <div class="checkout-header">
+        <span>SECURE CHECKOUT</span>
+        <h1>Checkout</h1>
+        <p>Choose your delivery address and review your order.</p>
+    </div>
+    <form action="{% url 'place_order' %}" method="POST">
+        {% csrf_token %}
+        <div class="checkout-container">
+            <div class="checkout-left">
+                <div class="checkout-card">
+                    <div class="checkout-card-header">
+                        <div>
+                            <span>STEP 1</span>
+                            <h2>Delivery Address</h2>
+                        </div>
+                        <div class="checkout-icon">📍</div>
+                    </div>
+                    <div class="address-selection">
+                        {% for i in addresses %}
+                        <label class="address-option" for="address{{i.id}}">
+                            <input type="radio" name="address" id="address{{i.id}}" value="{{i.id}}" {% if i.is_default %}checked{% endif %}>
+                            <div class="address-option-content">
+                                <div class="address-option-top">
+                                    <h3>{{i.fullname}}</h3>
+                                    {% if i.is_default %}
+                                    <span class="selected-badge">DEFAULT</span>
+                                    {% endif %}
+                                </div>
+                                <p class="address-phone">📞 {{i.mobile}}</p>
+                                <p>{{i.address_line}}</p>
+                                <p>{{i.city}}, {{i.state}} - {{i.pincode}}</p>
+                            </div>
+                            <span class="radio-circle"></span>
+                        </label>
+                        {% empty %}
+                        <div class="no-address-checkout">
+                            <span>📍</span>
+                            <h3>No Address Available</h3>
+                            <p>Please add a delivery address before placing your order.</p>
+                            <a href="{% url 'add_address' %}">+ Add Address</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="checkout-right">
+                <div class="order-summary-card">
+                    <div class="summary-header">
+                        <div>
+                            <span>STEP 2</span>
+                            <h2>Order Summary</h2>
+                        </div>
+                        <div class="bag-icon">🛍️</div>
+                    </div>
+                    <div class="checkout-products">
+                        {% for i in cart_items %}
+                        <div class="checkout-product">
+                            <div class="checkout-product-image">
+                                <img src="{{i.product.pimage.url}}" alt="{{i.product.pname}}">
+                            </div>
+                            <div class="checkout-product-info">
+                                <h3>{{i.product.pname}}</h3>
+                                <p>₹{{i.product.price}} × {{i.quantity}}</p>
+                            </div>
+                            <strong>₹{{i.total_price}}</strong>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="price-breakdown">
+                        <div>
+                            <span>Items</span>
+                            <span>{{cart_items|length}}</span>
+                        </div>
+                        <div>
+                            <span>Subtotal</span>
+                            <span>₹{{grand_total}}</span>
+                        </div>
+                        <div>
+                            <span>Delivery</span>
+                            <span class="free-delivery">FREE</span>
+                        </div>
+                    </div>
+                    <div class="grand-total">
+                        <span>Grand Total</span>
+                        <strong>₹{{grand_total}}</strong>
+                    </div>
+                    <button type="submit" class="place-order-btn">Place Order <span>→</span></button>
+                    <div class="secure-payment">
+                        <span>🔒</span>
+                        <div>
+                            <strong>Secure Checkout</strong>
+                            <p>Your order information is protected.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

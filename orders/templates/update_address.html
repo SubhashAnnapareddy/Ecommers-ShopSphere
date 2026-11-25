@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/update_address.css' %}">
+{% endblock %}
+{% block content %}
+<div class="update-address-page">
+    <div class="update-address-header">
+        <span>YOUR ACCOUNT</span>
+        <h1>Update Address</h1>
+        <p>Update your delivery address details.</p>
+    </div>
+    <div class="update-address-container">
+        <div class="update-address-card">
+            <div class="update-address-card-header">
+                <div class="update-address-icon">📍</div>
+                <div>
+                    <h2>Delivery Address</h2>
+                    <p>Update your saved address information.</p>
+                </div>
+            </div>
+            <form action="" method="POST" class="update-address-form">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="update-address-submit">Update Address →</button>
+            </form>
+        </div>
+        <div class="update-address-info">
+            <div class="update-info-item">
+                <span>✓</span>
+                <div>
+                    <h3>Update Safely</h3>
+                    <p>Your address information will be securely updated.</p>
+                </div>
+            </div>
+            <div class="update-info-item">
+                <span>✓</span>
+                <div>
+                    <h3>Accurate Delivery</h3>
+                    <p>Make sure your address details are correct.</p>
+                </div>
+            </div>
+            <div class="update-info-item">
+                <span>✓</span>
+                <div>
+                    <h3>Easy Checkout</h3>
+                    <p>Your updated address will be available during checkout.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/details.css' %}">
+{% endblock %}
+{% block content %}
+<div class="product-details-page">
+    <section class="product-details-container">
+        <div class="product-main-image">
+            <div class="image-box">
+                <img src="{{product.pimage.url}}" alt="{{product.pname}}">
+            </div>
+        </div>
+        <div class="product-main-info">
+            <span class="product-category">{{product.category.cname}}</span>
+            <h1>{{product.pname}}</h1>
+            <div class="product-rating">★★★★★ <span>Product Quality</span></div>
+            <div class="product-detail-price">₹{{product.price}}</div>
+            <div class="product-description">
+                <h3>Description</h3>
+                <p>{{product.pdescription}}</p>
+            </div>
+            <div class="product-stock">
+                <span>Stock:</span>
+                {% if product.stock > 0 %}
+                    <strong class="in-stock">{{product.stock}} Available</strong>
+                {% else %}
+                    <strong class="out-stock">Out of Stock</strong>
+                {% endif %}
+            </div>
+            {% if product.is_available %}
+                <div class="availability"><span class="availability-dot"></span>Available</div>
+                <a href="{% url 'add_to_cart' product.id %}" class="add-cart-large">🛒 Add to Cart</a>
+            {% else %}
+                <div class="unavailable">Currently Unavailable</div>
+            {% endif %}
+        </div>
+    </section>
+    <section class="related-products">
+        <div class="related-heading">
+            <span>YOU MAY ALSO LIKE</span>
+            <h2>Related Products</h2>
+        </div>
+        <div class="related-grid">
+            {% for i in category_product %}
+            <div class="related-card">
+                <div class="related-image">
+                    <img src="{{i.pimage.url}}" alt="{{i.pname}}">
+                </div>
+                <div class="related-info">
+                    <h3>{{i.pname}}</h3>
+                    <div class="related-price">₹{{i.price}}</div>
+                    <div class="related-actions">
+                        <a href="{% url 'details' i.id %}" class="related-details">View Details</a>
+                        <a href="{% url 'add_to_cart' i.id %}" class="related-cart">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="no-related"><p>No related products available.</p></div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

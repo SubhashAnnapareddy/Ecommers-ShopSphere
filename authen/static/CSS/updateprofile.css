@@ -1,0 +1,234 @@
+/* =========================================
+   UPDATE PROFILE PAGE
+========================================= */
+
+.update-title {
+    text-align: center;
+
+    margin-top: 40px;
+    margin-bottom: 30px;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: #1f2937;
+}
+
+
+/* =========================================
+   UPDATE CONTAINER
+========================================= */
+
+.update-container {
+    width: 500px;
+
+    margin: 0 auto 50px;
+
+    padding: 40px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.update-container form {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================
+   LABELS
+========================================= */
+
+.update-container label {
+    margin-top: 15px;
+    margin-bottom: 7px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+
+/* =========================================
+   TEXT / EMAIL INPUTS
+========================================= */
+
+.update-container input[type="text"],
+.update-container input[type="email"] {
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    font-size: 15px;
+
+    color: #1f2937;
+
+    background-color: #ffffff;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 7px;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Input Focus */
+
+.update-container input[type="text"]:focus,
+.update-container input[type="email"]:focus {
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =========================================
+   FILE INPUT
+========================================= */
+
+.update-container input[type="file"] {
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin-top: 3px;
+
+    font-size: 14px;
+
+    color: #374151;
+
+    background-color: #f9fafb;
+
+    border: 1px dashed #9ca3af;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+/* File input hover */
+
+.update-container input[type="file"]:hover {
+
+    border-color: #2563eb;
+
+    background-color: #eff6ff;
+}
+
+
+/* =========================================
+   UPDATE BUTTON
+========================================= */
+
+.update-container button {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Button Hover */
+
+.update-container button:hover {
+
+    background-color: #1d4ed8;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================================
+   BUTTON ACTIVE
+========================================= */
+
+.update-container button:active {
+
+    transform: translateY(0);
+
+    box-shadow: none;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .update-title {
+
+        font-size: 26px;
+
+        margin-top: 30px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .update-container {
+
+        width: calc(100% - 30px);
+
+        padding: 25px 20px;
+    }
+
+
+    .update-container label {
+
+        font-size: 13px;
+    }
+
+
+    .update-container input[type="text"],
+    .update-container input[type="email"] {
+
+        padding: 11px 12px;
+
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,252 @@
+/* =========================================
+   REGISTER PAGE
+========================================= */
+
+.register-container {
+    min-height: calc(100vh - 75px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    background-color: #f5f7fa;
+}
+
+
+/* =========================================
+   REGISTER BOX
+========================================= */
+
+.register-box {
+    width: 450px;
+
+    background-color: #ffffff;
+
+    padding: 40px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.register-box h1 {
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    font-size: 28px;
+
+    color: #1f2937;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   MESSAGES
+========================================= */
+
+.register-message {
+    padding: 10px 15px;
+
+    margin-bottom: 15px;
+
+    border-radius: 6px;
+
+    background-color: #fee2e2;
+
+    border: 1px solid #fecaca;
+
+    color: #dc2626;
+
+    font-size: 14px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   REGISTER FORM
+========================================= */
+
+.register-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+/* =========================================
+   LABELS
+========================================= */
+
+.register-form label {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #374151;
+
+    margin-top: 9px;
+}
+
+
+/* =========================================
+   INPUT FIELDS
+========================================= */
+
+.register-form input {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    font-size: 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 7px;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Input Focus */
+
+.register-form input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =========================================
+   REGISTER BUTTON
+========================================= */
+
+.register-form button {
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Button Hover */
+
+.register-form button:hover {
+    background-color: #1d4ed8;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================================
+   REGISTER LINKS
+========================================= */
+
+.register-links {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 22px;
+
+    gap: 15px;
+}
+
+
+.register-links a {
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    color: #2563eb;
+
+    transition: 0.3s ease;
+}
+
+
+.register-links a:hover {
+    color: #1d4ed8;
+
+    text-decoration: underline;
+}
+
+
+/* Reset Password */
+
+.register-links a:last-child {
+    color: #dc2626;
+}
+
+
+.register-links a:last-child:hover {
+    color: #b91c1c;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 500px) {
+
+    .register-container {
+        padding: 25px 15px;
+    }
+
+
+    .register-box {
+        width: 100%;
+
+        padding: 30px 22px;
+    }
+
+
+    .register-box h1 {
+        font-size: 24px;
+    }
+
+
+    .register-links {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 12px;
+    }
+}

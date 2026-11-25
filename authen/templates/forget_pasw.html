@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/forget_pasw.css' %}">
+{% endblock %}
+{% block content %}
+<div class="forgot-password-container">
+    <div class="forgot-password-box">
+        <h1>Forgot Password</h1>
+        {% if messages %}
+            {% for i in messages %}
+                <div class="forgot-message">
+                    {{ i }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <form action="" method="POST" class="forgot-form">
+            {% csrf_token %}
+            {% if new %}
+                <label for="username">Username:</label>
+                <input type="text"  value="{{ uname.username }}" disabled>
+
+                <label for="new-password">New Password:</label>
+                <input type="password" name="new_pasw"  placeholder="Enter new password"  required>
+
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="con_pasw" placeholder="Confirm new password" required>
+            {% else %}
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="uname" placeholder="Enter your username"required>
+            {% endif %}
+            <button type="submit">Reset Password</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

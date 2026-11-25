@@ -1,0 +1,205 @@
+/* =========================================
+   FORGOT PASSWORD PAGE
+========================================= */
+
+.forgot-password-container {
+    min-height: calc(100vh - 75px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    background-color: #f5f7fa;
+}
+
+
+/* =========================================
+   FORGOT PASSWORD BOX
+========================================= */
+
+.forgot-password-box {
+    width: 420px;
+
+    background-color: #ffffff;
+
+    padding: 40px;
+
+    border-radius: 12px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.forgot-password-box h1 {
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    font-size: 28px;
+
+    color: #1f2937;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.forgot-message {
+    padding: 10px 15px;
+
+    margin-bottom: 20px;
+
+    border-radius: 6px;
+
+    background-color: #fee2e2;
+
+    border: 1px solid #fecaca;
+
+    color: #dc2626;
+
+    font-size: 14px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.forgot-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* =========================================
+   LABELS
+========================================= */
+
+.forgot-form label {
+    text-align: left;
+
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+
+/* =========================================
+   INPUT FIELDS
+========================================= */
+
+.forgot-form input {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    font-size: 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 7px;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+
+/* Input Focus */
+
+.forgot-form input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* Disabled Username */
+
+.forgot-form input:disabled {
+    background-color: #f3f4f6;
+
+    color: #6b7280;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   RESET BUTTON
+========================================= */
+
+.forgot-form button {
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+/* Button Hover */
+
+.forgot-form button:hover {
+    background-color: #1d4ed8;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 500px) {
+
+    .forgot-password-container {
+        padding: 25px 15px;
+    }
+
+    .forgot-password-box {
+        width: 100%;
+
+        padding: 30px 22px;
+    }
+
+    .forgot-password-box h1 {
+        font-size: 24px;
+    }
+}

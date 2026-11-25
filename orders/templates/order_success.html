@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/order_success.css' %}">
+{% endblock %}
+{% block content %}
+<div class="order-success-page">
+    <div class="success-card">
+        <div class="success-icon">✓</div>
+        <span class="success-label">ORDER CONFIRMED</span>
+        <h1>Order Successful!</h1>
+        <p class="success-message">Thank you for your purchase. Your order has been placed successfully.</p>
+        <div class="order-confirmation">
+            <div class="confirmation-item">
+                <span>ORDER ID</span>
+                <strong>#{{order_product.id}}</strong>
+            </div>
+            <div class="confirmation-item">
+                <span>TOTAL AMOUNT</span>
+                <strong>₹{{order_product.total_amount}}</strong>
+            </div>
+            <div class="confirmation-item">
+                <span>STATUS</span>
+                <strong class="success-status">{{order_product.status}}</strong>
+            </div>
+            <div class="confirmation-item">
+                <span>ORDER DATE</span>
+                <strong>{{order_product.created_at}}</strong>
+            </div>
+        </div>
+        <div class="delivery-card">
+            <div class="delivery-header">
+                <div class="delivery-icon">📍</div>
+                <div>
+                    <span>DELIVERY ADDRESS</span>
+                    <h2>Shipping Details</h2>
+                </div>
+            </div>
+            <div class="delivery-details">
+                <strong>{{order_product.address.fullname}}</strong>
+                <p>📞 {{order_product.address.mobile}}</p>
+                <p>{{order_product.address.address_line}}</p>
+                <p>{{order_product.address.city}}, {{order_product.address.state}}</p>
+                <p>PINCODE: {{order_product.address.pincode}}</p>
+            </div>
+        </div>
+        <div class="success-actions">
+            <a href="{% url 'order_details' order_product.id %}" class="view-order-btn">View Order</a>
+            <a href="{% url 'home' %}" class="continue-btn">Continue Shopping</a>
+            <a href="{% url 'order_history' %}" class="orders-btn">My Orders</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

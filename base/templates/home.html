@@ -1,0 +1,98 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'CSS/home.css' %}">
+{% endblock %}
+{% block content %}
+<div class="home-container">
+    <!-- Page Header -->
+    <section class="home-header">
+        <div class="home-header-content">
+            <span class="home-label">WELCOME TO</span>
+            <h1>ShopSphere</h1>
+            <p>
+                Discover amazing products at the best prices.
+            </p>
+        </div>
+    </section>
+    <!-- Messages -->
+    {% if messages %}
+    <div class="message-container">
+        {% for i in messages %}
+        <div class="success-message">
+            {{ i }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <!-- Categories -->
+    <section class="category-section">
+        <div class="section-heading">
+            <span>SHOP BY</span>
+            <h2>Categories</h2>
+        </div>
+        <form action="" method="get" class="category-form">
+            {% for i in category %}
+                <button type="submit" value="{{ i }}" name="cat" class="category-btn">{{ i }}</button>
+            {% endfor %}
+        </form>
+    </section>
+    <!-- Products -->
+    <section class="products-section">
+        <div class="section-heading product-heading">
+            <div>
+                <span>EXPLORE OUR</span>
+                <h2>Featured Products</h2>
+            </div>
+            <p>
+                {{ all_products|length }} Products
+            </p>
+        </div>
+        <div class="product-grid">
+            {% for i in all_products %}
+            <div class="product-card">
+                <!-- Product Image -->
+                <div class="product-image-container">
+                    <img
+                        src="{{ i.pimage.url }}"
+                        alt="{{ i.pname }}"
+                        class="product-image">
+                    <span class="product-badge">
+                        NEW
+                    </span>
+                </div>
+                <!-- Product Information -->
+                <div class="product-info">
+                    <h3>
+                        {{ i.pname }}
+                    </h3>
+                    <div class="product-price">
+                        ₹{{ i.price }}
+                    </div>
+                    <!-- Buttons -->
+                    <div class="product-actions">
+                        <a
+                            href="{% url 'details' i.id %}"
+                            class="details-btn">
+                            View Details
+                        </a>
+                        <a
+                            href="{% url 'add_to_cart' i.id %}"
+                            class="cart-btn">
+                            Add To Cart
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="no-products">
+                <h2>No Products Found</h2>
+                <p>
+                    We couldn't find any products in this category.
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}
